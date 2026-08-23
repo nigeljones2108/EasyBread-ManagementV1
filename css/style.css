@@ -1,0 +1,711 @@
+/* =============================================================
+   STYLE.CSS
+   =============================================================
+   Section map (search these headers to jump around):
+     1. Design tokens (edit colors/fonts here — everything else
+        references these variables, so this is the one place to
+        touch for a re-theme)
+     2. Reset + base
+     3. Layout helpers
+     4. Header / navigation
+     5. Buttons
+     6. Hero + growth-line signature graphic
+     7. Cards / sections
+     8. Forms
+     9. Footer
+     10. Utility / animation
+     11. Form page sidebars (Application / Contact / Careers)
+     12. Responsive
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   1. DESIGN TOKENS
+   ------------------------------------------------------------- */
+:root {
+  /* Brand colors — requested background + foreground */
+  --color-bg: #EAECC6;          /* page background, as specified */
+  --color-accent: #2BC0E4;      /* primary accent/foreground, as specified */
+  --color-accent-deep: #12799C; /* darker accent for hover/pressed states */
+  --color-accent-soft: rgba(43, 192, 228, 0.14);
+
+  /* Supporting neutrals, derived to sit comfortably with the two above */
+  --color-ink: #1E2422;         /* primary text */
+  --color-ink-soft: #4B5450;    /* secondary text */
+  --color-surface: #F7F8E9;     /* card surface, slightly lighter than bg */
+  --color-line: #C9CDA0;        /* hairline borders derived from bg */
+  --color-error: #B3401F;       /* form error state */
+  --color-success: #1D7A4C;     /* form success state */
+
+  /* Type */
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* Scale */
+  --step-0: clamp(1rem, 0.95rem + 0.2vw, 1.05rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  --step-3: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --max-width: 1180px;
+  --transition: 180ms ease;
+}
+
+/* -------------------------------------------------------------
+   2. RESET + BASE
+   ------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  font-weight: 600;
+}
+
+h1 { font-size: var(--step-3); }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+
+p { margin: 0 0 1em; color: var(--color-ink-soft); }
+
+a { color: var(--color-accent-deep); text-decoration: none; }
+a:hover { color: var(--color-ink); }
+
+img, svg { max-width: 100%; display: block; }
+
+/* Visible keyboard focus everywhere — accessibility floor */
+:focus-visible {
+  outline: 3px solid var(--color-accent-deep);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------
+   3. LAYOUT HELPERS
+   ------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--color-accent-deep);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* -------------------------------------------------------------
+   4. HEADER / NAVIGATION
+   ------------------------------------------------------------- */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: auto;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.brand:hover { color: var(--color-ink); }
+
+/* Placeholder logo mark — swap this block for an <img> once a real logo exists */
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: var(--color-ink);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: right var(--transition);
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after {
+  right: 0;
+}
+
+.nav-list a.active { color: var(--color-accent-deep); }
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.menu-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink);
+  transition: transform var(--transition), opacity var(--transition);
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* -------------------------------------------------------------
+   5. BUTTONS
+   ------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.btn-accent {
+  background: var(--color-accent);
+  color: #0B2229;
+}
+.btn-accent:hover { background: var(--color-accent-deep); color: #fff; }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+.btn-outline:hover { border-color: var(--color-accent-deep); color: var(--color-accent-deep); }
+
+.nav-cta { margin-left: 0.5rem; }
+
+/* -------------------------------------------------------------
+   6. HERO + GROWTH-LINE SIGNATURE GRAPHIC
+   ------------------------------------------------------------- */
+.hero {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero > * {
+  min-width: 0;
+}
+
+.hero-copy .eyebrow { margin-bottom: 1rem; }
+.hero-copy p { font-size: 1.1rem; max-width: 46ch; }
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* The signature element: an animated line that "draws" upward and to the
+   right, evoking a growth/engagement chart. Reused (smaller) as section
+   dividers elsewhere on the site for visual continuity. */
+.growth-line-wrap {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.growth-line-wrap .stat-pill {
+  position: absolute;
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-ink-soft);
+  box-shadow: 0 4px 14px rgba(30, 36, 34, 0.06);
+}
+.growth-line-wrap .stat-pill.top { top: 10%; right: 8%; }
+.growth-line-wrap .stat-pill.bottom { bottom: 14%; left: 8%; }
+
+[data-growth-line] path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* stroke-dashoffset starting value is set inline by main.js
+     (equal to the path's own length, i.e. fully hidden) */
+}
+
+/*
+ * Looping reveal: rise, reverse, pause, then rise again — forever.
+ * The 6.7s duration and the 23.9% / 47.8% keyframe stops below come
+ * straight from the three timing constants at the top of js/main.js:
+ *   GROWTH_RISE_MS (1600) + GROWTH_REVERSE_MS (1600) + GROWTH_PAUSE_MS (3500) = 6700ms
+ *   23.9% = 1600 / 6700   (fully risen)
+ *   47.8% = 3200 / 6700   (fully reversed back out)
+ * CSS keyframe stops can't reference custom properties/JS values directly,
+ * so if you change those constants in main.js, update the numbers here
+ * to match (both places say so in a comment).
+ */
+[data-growth-line].growth-loop path {
+  animation: growth-line-cycle 6.7s ease-in-out infinite;
+}
+
+[data-growth-line].growth-loop circle.endpoint {
+  animation: growth-endpoint-cycle 6.7s ease-in-out infinite;
+}
+
+@keyframes growth-line-cycle {
+  0%     { stroke-dashoffset: var(--path-length); } /* start: hidden */
+  23.9%  { stroke-dashoffset: 0; }                  /* risen */
+  99%  { stroke-dashoffset: var(--path-length); } /* reversed back out */
+  100%   { stroke-dashoffset: var(--path-length); } /* hold through the pause */
+}
+
+@keyframes growth-endpoint-cycle {
+  0%     { opacity: 0; }
+  21.9%  { opacity: 0; }
+  23.9%  { opacity: 1; } /* dot appears once fully risen */
+  35.8%  { opacity: 1; }
+  60%  { opacity: 0; } /* fades as the line reverses out */
+  100%   { opacity: 0; }
+}
+
+/* Small divider version used between sections on inner pages */
+.divider-line {
+  width: 100%;
+  height: 40px;
+  margin-block: 1rem 2rem;
+}
+
+/* -------------------------------------------------------------
+   7. CARDS / SECTIONS
+   ------------------------------------------------------------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  height: 100%;
+}
+
+.card h3 { margin-bottom: 0.5rem; }
+
+.card .eyebrow { font-size: 0.7rem; }
+
+.stat-row {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.stat-row .stat {
+  font-family: var(--font-mono);
+}
+.stat .number {
+  font-size: var(--step-2);
+  color: var(--color-accent-deep);
+  font-weight: 600;
+  display: block;
+}
+.stat .label {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-line);
+  padding-block: 1.25rem;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-ink);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--color-accent-deep);
+  transition: transform var(--transition);
+}
+.faq-item[open] summary::after { content: "–"; }
+.faq-item p { margin-top: 0.75rem; }
+
+/* -------------------------------------------------------------
+   8. FORMS
+   ------------------------------------------------------------- */
+.form-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 640px;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.field .hint {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+input, textarea, select {
+  font: inherit;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-line);
+  background: #fff;
+  color: var(--color-ink);
+  transition: border-color var(--transition);
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-accent-deep);
+  outline: none;
+}
+textarea { resize: vertical; min-height: 120px; }
+
+/* Honeypot field — hidden from sighted + keyboard users, but still present
+   in the DOM for bots that indiscriminately fill every input. */
+.honeypot-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+.form-message--success {
+  background: rgba(29, 122, 76, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(29, 122, 76, 0.3);
+}
+.form-message--error {
+  background: rgba(179, 64, 31, 0.1);
+  color: var(--color-error);
+  border: 1px solid rgba(179, 64, 31, 0.3);
+}
+
+/* -------------------------------------------------------------
+   9. FOOTER
+   ------------------------------------------------------------- */
+#site-footer {
+  border-top: 1px solid var(--color-line);
+  margin-top: 4rem;
+  padding-block: 3rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  justify-content: space-between;
+  column-gap: 3rem;
+}
+
+.footer-agency-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 0.25rem;
+}
+.footer-tagline { font-size: 0.9rem; }
+
+.footer-contact, .footer-socials {
+  text-align: right;
+}
+
+.footer-contact p, .footer-socials a {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.footer-note {
+  max-width: var(--max-width);
+  margin: 1rem auto 0;
+  padding-inline: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+.footer-legal-links {
+  max-width: var(--max-width);
+  margin: 1rem auto 0;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+.footer-legal-links a {
+  color: var(--color-ink-soft);
+}
+.footer-legal-links a:hover {
+  color: var(--color-accent-deep);
+}
+.footer-legal-sep {
+  color: var(--color-line);
+}
+
+.footer-legal-notices {
+  max-width: var(--max-width);
+  margin: 2rem auto 0;
+  padding-inline: 1.5rem;
+}
+.footer-legal-notices p {
+  font-size: 0.75rem;
+  color: var(--color-ink-soft);
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+.footer-legal-notices p:last-child {
+  margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------
+   10. UTILITY / ANIMATION
+   ------------------------------------------------------------- */
+.text-center { text-align: center; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: 0.4rem; }
+.my-sm { margin-block: 0.75rem; }
+.center-copy { max-width: 640px; margin-inline: auto; }
+
+/* -------------------------------------------------------------
+   11. FORM PAGE SIDEBARS (Application / Contact / Careers)
+   ------------------------------------------------------------- */
+
+/* Puts the form on the left and a sidebar of supporting content on
+   the right, filling the empty space next to a narrower form-card. */
+.form-page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+/* Without this, grid items default to a min-width based on their
+   content's natural size, which can force the whole grid (and the
+   page) wider than the viewport on narrow screens — this lets the
+   form and sidebar actually shrink to fit. */
+.form-page-layout > * {
+  min-width: 0;
+}
+
+.form-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* "What happens next" style numbered step list — not boxed. */
+.process-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.process-steps li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: baseline;
+}
+.process-steps .step-number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent-deep);
+  flex-shrink: 0;
+  min-width: 1.6rem;
+}
+.process-steps .step-body strong {
+  display: block;
+  color: var(--color-ink);
+  margin-bottom: 0.15rem;
+}
+.process-steps .step-body p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+/* Boxed bullet list (e.g. "How we work") — reuses .card for the box. */
+.sidebar-box h3 { margin-bottom: 0.75rem; }
+.sidebar-box ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.sidebar-box ul li {
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+}
+.sidebar-box p {
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+.sidebar-box p + p { margin-top: 0.6rem; }
+
+/* Small, muted disclaimer-style text (reuses the same visual weight as
+   form hint text elsewhere on the site). */
+.small-print {
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+  line-height: 1.55;
+}
+
+/* Smaller heading used for un-boxed sidebar sub-sections (e.g. "Where we work"). */
+.sidebar-subheading {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.form-sidebar .btn { display: inline-flex; }
+
+/* -------------------------------------------------------------
+   12. RESPONSIVE
+   ------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; justify-content: start; }
+  .form-page-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle { display: flex; }
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    display: none;
+  }
+  .nav-list.open { display: flex; }
+  .nav-cta { display: none; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-contact, .footer-socials { text-align: left; }
+}

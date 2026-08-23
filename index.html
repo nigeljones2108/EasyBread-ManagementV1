@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyBread Management — Social Media Management</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Basic hardening headers that CAN be set via meta tags (the rest —
+       Content-Security-Policy, X-Frame-Options, etc. — are set server-side
+       in backend/app.py, since meta tags can't fully replace real HTTP
+       response headers). -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <meta name="description" content="Placeholder description for EasyBread Management, a social media management agency.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header is rendered into this mount point by js/main.js, from js/config.js -->
+  <header id="site-header"></header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="container hero">
+      <div class="hero-copy">
+        <span class="eyebrow">OnlyFans &amp; Social media management, done properly, made easy</span>
+        <h1>Site is still in development , do not fill out any forms &#60;3</h1>
+        <p>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn btn-accent">Explore services</a>
+          <a href="contact.html" class="btn btn-outline">Get in touch</a>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat">
+            <span class="number">128%</span>
+            <span class="label">Placeholder metric</span>
+          </div>
+          <div class="stat">
+            <span class="number">40+</span>
+            <span class="label">Placeholder metric</span>
+          </div>
+          <div class="stat">
+            <span class="number">3.2x</span>
+            <span class="label">Placeholder metric</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signature graphic: an animated "growth line" — see main.js + style.css -->
+      <div class="growth-line-wrap">
+        <span class="stat-pill top">+ Lorem 24%</span>
+        <span class="stat-pill bottom">Ipsum dolor</span>
+        <svg viewBox="0 0 400 220" data-growth-line aria-hidden="true">
+          <path d="M 10 190 C 60 190, 70 140, 110 150 S 170 90, 210 100 S 260 40, 300 45 S 360 20, 390 15" />
+          <circle class="endpoint" cx="390" cy="15" r="6"></circle>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ WHAT WE DO ============ -->
+    <section class="container section">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Consectetur adipiscing elit, sed do eiusmod</h2>
+        <p>Tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="eyebrow">01</span>
+          <h3>Lorem ipsum planning</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+        </div>
+        <div class="card">
+          <span class="eyebrow">02</span>
+          <h3>Dolor sit content</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="card">
+          <span class="eyebrow">03</span>
+          <h3>Consequat reporting</h3>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="container section text-center">
+      <div class="center-copy">
+        <h2>Sed ut perspiciatis unde omnis iste natus error</h2>
+        <p>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
+        <a href="application.html" class="btn btn-accent">Start an application</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer is rendered into this mount point by js/main.js, from js/config.js -->
+  <footer id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

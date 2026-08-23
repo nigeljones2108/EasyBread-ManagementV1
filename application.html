@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application — EasyBread Management</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Apply to work with EasyBread Management.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <main>
+    <section class="container section">
+      <div class="section-head">
+        <span class="eyebrow">Application</span>
+        <h1>Sed ut perspiciatis unde omnis iste</h1>
+        <p>Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+      </div>
+
+      <div class="form-page-layout">
+        <form class="form-card" data-secure-form data-form-name="application" novalidate>
+          <div class="field">
+            <label for="app-name">Full name</label>
+            <input type="text" id="app-name" name="name" maxlength="120" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="app-email">Email address</label>
+            <input type="email" id="app-email" name="email" maxlength="200" required autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="app-handle">Primary social handle / profile link</label>
+            <input type="text" id="app-handle" name="handle" maxlength="200" placeholder="@placeholder or profile URL">
+          </div>
+
+          <div class="field">
+            <label for="app-niche">Niche / content category</label>
+            <input type="text" id="app-niche" name="niche" maxlength="150" required>
+          </div>
+
+          <div class="field">
+            <label for="app-goals">What are you hoping to achieve?</label>
+            <textarea id="app-goals" name="goals" maxlength="5000" required></textarea>
+            <p class="hint">Lorem ipsum placeholder hint text — max 5000 characters.</p>
+          </div>
+
+          <button type="submit" class="btn btn-accent">Submit application</button>
+        </form>
+
+        <!-- Sidebar filling the space beside the form. Still placeholder
+             copy in the "How we work" / privacy blocks below, but this
+             specific wording was supplied directly rather than Lorem Ipsum. -->
+        <aside class="form-sidebar">
+          <div>
+            <h3>What happens next</h3>
+            <ol class="process-steps">
+              <li>
+                <span class="step-number">01</span>
+                <span class="step-body">
+                  <strong>Say hello</strong>
+                  <p>Five minutes, a handful of friendly questions. No portfolio, no pitch deck.</p>
+                </span>
+              </li>
+              <li>
+                <span class="step-number">02</span>
+                <span class="step-body">
+                  <strong>Personal review</strong>
+                  <p>Every application is read by our team. Not a bot, not a VA. We reply to everyone.</p>
+                </span>
+              </li>
+              <li>
+                <span class="step-number">03</span>
+                <span class="step-body">
+                  <strong>A real conversation</strong>
+                  <p>If it feels like a fit, we arrange a call. No commitment and no pressure, just a real chat about where you could go.</p>
+                </span>
+              </li>
+              <li>
+                <span class="step-number">04</span>
+                <span class="step-body">
+                  <strong>Your plan</strong>
+                  <p>Join us and we build your strategy together, covering brand, growth and schedule, before anything goes live.</p>
+                </span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="card sidebar-box">
+            <h3>How we work</h3>
+            <ul>
+              <li>Commission only, a share of your net earnings. Never a retainer or an upfront fee.</li>
+              <li>You keep full access to your account and full ownership of everything you create.</li>
+              <li>You're paid directly by the platform. Your money never passes through us.</li>
+              <li>Your exact split is agreed in writing before you sign anything. No surprises, ever.</li>
+            </ul>
+          </div>
+
+          <div class="card sidebar-box">
+            <h3>Your privacy, always.</h3>
+            <p>
+              What you share here is seen only by our team and the secure
+              service that delivers it to us, never sold and never shared
+              for marketing, and deleted whenever you ask. Discretion is
+              the baseline of this industry, and of this agency.
+              <a href="privacy-policy.html">Read our privacy policy.</a>
+            </p>
+          </div>
+
+          <p class="small-print">
+            Prefer DMs? We're always happy to chat on
+            <a href="https://www.instagram.com/easybreadmanagement" target="_blank" rel="noopener">@easybreadmanagement</a>.
+            A quick heads-up: we never cold-DM creators to sign them, so
+            @easybreadmanagement on Instagram and emails from
+            @easybreadmanagement.com are our only official channels.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>
