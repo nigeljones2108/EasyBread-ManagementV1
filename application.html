@@ -1,136 +1,546 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application — EasyBread Management</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="description" content="Apply to work with EasyBread Management.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application | EasyBread Management</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      name="description"
+      content="Apply to work with EasyBread Management."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
 
-  <header id="site-header"></header>
+    <main>
+      <section class="container section">
+        <div class="section-head">
+          <span class="eyebrow">Application</span>
+          <h1>Sed ut perspiciatis unde omnis iste</h1>
+          <p>
+            Natus error sit voluptatem accusantium doloremque laudantium, totam
+            rem aperiam, eaque ipsa quae ab illo.
+          </p>
+        </div>
 
-  <main>
-    <section class="container section">
-      <div class="section-head">
-        <span class="eyebrow">Application</span>
-        <h1>Sed ut perspiciatis unde omnis iste</h1>
-        <p>Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
-      </div>
+        <div class="form-page-layout">
+          <form
+            class="form-card"
+            data-secure-form
+            data-form-name="application"
+            novalidate
+          >
+            <h3 class="form-section-heading">A bit about you</h3>
 
-      <div class="form-page-layout">
-        <form class="form-card" data-secure-form data-form-name="application" novalidate>
-          <div class="field">
-            <label for="app-name">Full name</label>
-            <input type="text" id="app-name" name="name" maxlength="120" required autocomplete="name">
-          </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="app-name"
+                  >Full creator name <span class="required-mark">*</span></label
+                >
+                <input
+                  type="text"
+                  id="app-name"
+                  name="name"
+                  maxlength="120"
+                  required
+                  autocomplete="name"
+                  placeholder="Your full creator name"
+                />
+              </div>
 
-          <div class="field">
-            <label for="app-email">Email address</label>
-            <input type="email" id="app-email" name="email" maxlength="200" required autocomplete="email">
-          </div>
+              <div class="field">
+                <label for="app-email"
+                  >Email <span class="required-mark">*</span></label
+                >
+                <input
+                  type="email"
+                  id="app-email"
+                  name="email"
+                  maxlength="200"
+                  required
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
 
-          <div class="field">
-            <label for="app-handle">Primary social handle / profile link</label>
-            <input type="text" id="app-handle" name="handle" maxlength="200" placeholder="@placeholder or profile URL">
-          </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="app-gender"
+                  >What do you identify as?
+                  <span class="required-mark">*</span></label
+                >
+                <select
+                  id="app-gender"
+                  name="gender"
+                  required
+                  data-toggle-other="app-gender-other"
+                >
+                  <option value="" disabled selected>Select one</option>
+                  <option value="Man">Man</option>
+                  <option value="Woman">Woman</option>
+                  <option value="Transgender">Transgender</option>
+                  <option value="Nonbinary">Nonbinary</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  type="text"
+                  id="app-gender-other"
+                  name="gender_other"
+                  maxlength="100"
+                  placeholder="Please specify"
+                  hidden
+                />
+              </div>
 
-          <div class="field">
-            <label for="app-niche">Niche / content category</label>
-            <input type="text" id="app-niche" name="niche" maxlength="150" required>
-          </div>
+              <div class="field">
+                <label for="app-pronouns"
+                  >Pronouns <span class="required-mark">*</span></label
+                >
+                <select
+                  id="app-pronouns"
+                  name="pronouns"
+                  required
+                  data-toggle-other="app-pronouns-other"
+                >
+                  <option value="" disabled selected>Select one</option>
+                  <option value="He/Him">He/Him</option>
+                  <option value="She/Her">She/Her</option>
+                  <option value="They/Them">They/Them</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  type="text"
+                  id="app-pronouns-other"
+                  name="pronouns_other"
+                  maxlength="100"
+                  placeholder="Please specify"
+                  hidden
+                />
+              </div>
+            </div>
 
-          <div class="field">
-            <label for="app-goals">What are you hoping to achieve?</label>
-            <textarea id="app-goals" name="goals" maxlength="5000" required></textarea>
-            <p class="hint">Lorem ipsum placeholder hint text — max 5000 characters.</p>
-          </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="app-birth-year"
+                  >Year of birth <span class="required-mark">*</span></label
+                >
+                <!-- max is a client-side courtesy (roughly "18+ as of now"); the
+                     backend re-checks the real 18+ cutoff at request time. -->
+                <input
+                  type="number"
+                  id="app-birth-year"
+                  name="birth_year"
+                  inputmode="numeric"
+                  min="1940"
+                  max="2008"
+                  required
+                  autocomplete="bday-year"
+                  placeholder="e.g. 1998"
+                />
+              </div>
 
-          <button type="submit" class="btn btn-accent">Submit application</button>
-        </form>
+              <div class="field">
+                <label for="app-location"
+                  >Where are you based?
+                  <span class="required-mark">*</span></label
+                >
+                <input
+                  type="text"
+                  id="app-location"
+                  name="location"
+                  maxlength="150"
+                  required
+                  autocomplete="country-name"
+                  placeholder="City &#38; Country"
+                />
+              </div>
+            </div>
 
-        <!-- Sidebar filling the space beside the form. Still placeholder
+            <div class="field">
+              <label for="app-experience"
+                >How long have you been a content creator for?
+                <span class="required-mark">*</span></label
+              >
+              <select id="app-experience" name="creator_experience" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="Have not started">Have not started</option>
+                <option value="Under 6 Months">Under 6 Months</option>
+                <option value="1 Year">1 Year</option>
+                <option value="2 Years">2 Years</option>
+                <option value="3 Years">3 Years</option>
+                <option value="4 Years">4 Years</option>
+                <option value="5+ Years">5+ Years</option>
+              </select>
+            </div>
+
+            <h3 class="form-section-heading">
+              Add all your social media profiles and pay wall sites
+            </h3>
+            <p class="form-section-subtext">
+              Add your username or link in the fields below. If you have a
+              social landing page (e.g. Linktree), add it to the "Secondary pay
+              wall platform and other social medias" field and leave the boxes
+              below blank. If you use another pay wall service as your primary,
+              add it in the OnlyFans field instead. None of these fields are
+              required if you don't have one.
+            </p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="app-instagram">Instagram</label>
+                <input
+                  type="text"
+                  id="app-instagram"
+                  name="instagram"
+                  maxlength="200"
+                  placeholder="@username or profile URL"
+                />
+              </div>
+
+              <div class="field">
+                <label for="app-tiktok">TikTok</label>
+                <input
+                  type="text"
+                  id="app-tiktok"
+                  name="tiktok"
+                  maxlength="200"
+                  placeholder="@username or profile URL"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="app-twitter">X (Twitter)</label>
+                <input
+                  type="text"
+                  id="app-twitter"
+                  name="twitter"
+                  maxlength="200"
+                  placeholder="@username or profile URL"
+                />
+              </div>
+
+              <div class="field">
+                <label for="app-reddit">Reddit</label>
+                <input
+                  type="text"
+                  id="app-reddit"
+                  name="reddit"
+                  maxlength="200"
+                  placeholder="u/username or profile URL"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="app-primary-platform"
+                >OnlyFans OR Other primary pay wall platform</label
+              >
+              <input
+                type="text"
+                id="app-primary-platform"
+                name="primary_platform"
+                maxlength="200"
+                placeholder="Username or profile URL"
+              />
+            </div>
+
+            <div class="field">
+              <label for="app-secondary-platforms"
+                >Other pay wall platform and other social media platforms</label
+              >
+              <textarea
+                id="app-secondary-platforms"
+                name="secondary_platforms"
+                maxlength="500"
+                rows="1"
+                data-autogrow
+                placeholder="E.g. Fansly, ManyVids, Twitch, Kick, YouTube"
+              ></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="app-fan-count"
+                  >Number of active paid/free fans
+                  <span class="required-mark">*</span></label
+                >
+                <input
+                  type="number"
+                  id="app-fan-count"
+                  name="fan_count"
+                  inputmode="numeric"
+                  min="0"
+                  step="1"
+                  required
+                  placeholder="Total number of fans"
+                />
+              </div>
+
+              <div class="field">
+                <label for="app-revenue"
+                  >Last 30 days OnlyFans revenue (USD)
+                  <span class="required-mark">*</span></label
+                >
+                <div class="input-prefix">
+                  <span class="input-prefix-symbol" aria-hidden="true">$</span>
+                  <input
+                    type="number"
+                    id="app-revenue"
+                    name="monthly_revenue"
+                    inputmode="decimal"
+                    min="0"
+                    step="0.01"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <h3 class="form-section-heading">More about you and your goals</h3>
+
+            <fieldset class="field-choice-field">
+              <legend>
+                Have you worked with an agency before?
+                <span class="required-mark">*</span>
+              </legend>
+              <div class="field-choice-group">
+                <label class="field-choice">
+                  <input
+                    type="radio"
+                    name="worked_with_agency"
+                    value="Yes"
+                    required
+                  />
+                  Yes
+                </label>
+                <label class="field-choice">
+                  <input
+                    type="radio"
+                    name="worked_with_agency"
+                    value="No"
+                    required
+                  />
+                  No
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="app-struggles"
+                >What are you struggling with regarding your OnlyFans at the
+                moment? <span class="required-mark">*</span></label
+              >
+              <textarea
+                id="app-struggles"
+                name="struggles"
+                maxlength="5000"
+                required
+                class="textarea-lg"
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="app-inspirations"
+                >Who are your inspirations for your content/niche?
+                <span class="required-mark">*</span></label
+              >
+              <textarea
+                id="app-inspirations"
+                name="inspirations"
+                maxlength="5000"
+                required
+                class="textarea-lg"
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="app-about-you"
+                >Tell us a bit about yourself or anything that will help us
+                review your application</label
+              >
+              <textarea
+                id="app-about-you"
+                name="about_you"
+                maxlength="5000"
+                class="textarea-lg"
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label class="field-choice">
+                <input
+                  type="checkbox"
+                  id="app-age-confirm"
+                  name="age_confirmation"
+                  value="yes"
+                  required
+                />
+                I confirm that I am 18 years of age or older.
+                <span class="required-mark">*</span>
+              </label>
+            </div>
+
+            <div class="field">
+              <label class="field-choice">
+                <input
+                  type="checkbox"
+                  id="app-privacy-confirm"
+                  name="privacy_confirmation"
+                  value="yes"
+                  required
+                />
+                I agree to the
+                <a href="privacy-policy.html" target="_blank" rel="noopener"
+                  >Privacy Policy</a
+                >.
+                <span class="required-mark">*</span>
+              </label>
+            </div>
+
+            <div class="field">
+              <label class="field-choice">
+                <input
+                  type="checkbox"
+                  id="app-tos-confirm"
+                  name="tos_confirmation"
+                  value="yes"
+                  required
+                />
+                I agree to the
+                <a href="terms-of-service.html" target="_blank" rel="noopener"
+                  >Terms of Service</a
+                >.
+                <span class="required-mark">*</span>
+              </label>
+            </div>
+
+            <p class="privacy-policy-agreement">
+              By sending this, you agree to us contacting you about your
+              application. Nothing more. No lists, no spam, no sharing. See our
+              <a href="privacy-policy.html">privacy policy</a>.
+            </p>
+            <button type="submit" class="btn btn-accent">
+              Submit application
+            </button>
+          </form>
+
+          <!-- Sidebar filling the space beside the form. Still placeholder
              copy in the "How we work" / privacy blocks below, but this
              specific wording was supplied directly rather than Lorem Ipsum. -->
-        <aside class="form-sidebar">
-          <div>
-            <h3>What happens next</h3>
-            <ol class="process-steps">
-              <li>
-                <span class="step-number">01</span>
-                <span class="step-body">
-                  <strong>Say hello</strong>
-                  <p>Five minutes, a handful of friendly questions. No portfolio, no pitch deck.</p>
-                </span>
-              </li>
-              <li>
-                <span class="step-number">02</span>
-                <span class="step-body">
-                  <strong>Personal review</strong>
-                  <p>Every application is read by our team. Not a bot, not a VA. We reply to everyone.</p>
-                </span>
-              </li>
-              <li>
-                <span class="step-number">03</span>
-                <span class="step-body">
-                  <strong>A real conversation</strong>
-                  <p>If it feels like a fit, we arrange a call. No commitment and no pressure, just a real chat about where you could go.</p>
-                </span>
-              </li>
-              <li>
-                <span class="step-number">04</span>
-                <span class="step-body">
-                  <strong>Your plan</strong>
-                  <p>Join us and we build your strategy together, covering brand, growth and schedule, before anything goes live.</p>
-                </span>
-              </li>
-            </ol>
-          </div>
+          <aside class="form-sidebar">
+            <div>
+              <h3>What happens next</h3>
+              <ol class="process-steps">
+                <li>
+                  <span class="step-number">01</span>
+                  <span class="step-body">
+                    <strong>Say hello</strong>
+                    <p>
+                      Five minutes, a handful of friendly questions. No
+                      portfolio, no pitch deck.
+                    </p>
+                  </span>
+                </li>
+                <li>
+                  <span class="step-number">02</span>
+                  <span class="step-body">
+                    <strong>Personal review</strong>
+                    <p>
+                      Every application is read by our team. Not a bot, not a
+                      VA. We reply to everyone.
+                    </p>
+                  </span>
+                </li>
+                <li>
+                  <span class="step-number">03</span>
+                  <span class="step-body">
+                    <strong>A real conversation</strong>
+                    <p>
+                      If it feels like a fit, we arrange a call. No commitment
+                      and no pressure, just a real chat about where you could
+                      go.
+                    </p>
+                  </span>
+                </li>
+                <li>
+                  <span class="step-number">04</span>
+                  <span class="step-body">
+                    <strong>Your plan</strong>
+                    <p>
+                      Join us and we build your strategy together, covering
+                      brand, growth and schedule, before anything goes live.
+                    </p>
+                  </span>
+                </li>
+              </ol>
+            </div>
 
-          <div class="card sidebar-box">
-            <h3>How we work</h3>
-            <ul>
-              <li>Commission only, a share of your net earnings. Never a retainer or an upfront fee.</li>
-              <li>You keep full access to your account and full ownership of everything you create.</li>
-              <li>You're paid directly by the platform. Your money never passes through us.</li>
-              <li>Your exact split is agreed in writing before you sign anything. No surprises, ever.</li>
-            </ul>
-          </div>
+            <div class="card sidebar-box">
+              <h3>How we work</h3>
+              <ul>
+                <li>
+                  Commission only, a share of your net earnings. Never a
+                  retainer or an upfront fee.
+                </li>
+                <li>
+                  You keep full access to your account and full ownership of
+                  everything you create.
+                </li>
+                <li>
+                  You're paid directly by the platform. Your money never passes
+                  through us.
+                </li>
+                <li>
+                  Your exact split is agreed in writing before you sign
+                  anything. No surprises, ever.
+                </li>
+              </ul>
+            </div>
 
-          <div class="card sidebar-box">
-            <h3>Your privacy, always.</h3>
-            <p>
-              What you share here is seen only by our team and the secure
-              service that delivers it to us, never sold and never shared
-              for marketing, and deleted whenever you ask. Discretion is
-              the baseline of this industry, and of this agency.
-              <a href="privacy-policy.html">Read our privacy policy.</a>
+            <div class="card sidebar-box">
+              <h3>Your privacy, always.</h3>
+              <p>
+                What you share here is seen only by our team and the secure
+                service that delivers it to us, never sold and never shared for
+                marketing, and deleted whenever you ask. Discretion is the
+                baseline of this industry, and of this agency.
+                <a href="privacy-policy.html">Read our privacy policy.</a>
+              </p>
+            </div>
+
+            <p class="small-print">
+              Prefer DMs? We're always happy to chat on
+              <a
+                href="https://www.instagram.com/easybreadmanagement"
+                target="_blank"
+                rel="noopener"
+                >@easybreadmanagement</a
+              >. A quick heads-up: we never cold-DM creators to sign them, so
+              @easybreadmanagement on Instagram and emails from
+              @easybreadmanagement.com are our only official channels.
             </p>
-          </div>
+          </aside>
+        </div>
+      </section>
+    </main>
 
-          <p class="small-print">
-            Prefer DMs? We're always happy to chat on
-            <a href="https://www.instagram.com/easybreadmanagement" target="_blank" rel="noopener">@easybreadmanagement</a>.
-            A quick heads-up: we never cold-DM creators to sign them, so
-            @easybreadmanagement on Instagram and emails from
-            @easybreadmanagement.com are our only official channels.
-          </p>
-        </aside>
-      </div>
-    </section>
-  </main>
+    <footer id="site-footer"></footer>
 
-  <footer id="site-footer"></footer>
-
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/forms.js"></script>
-</body>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+  </body>
 </html>

@@ -1,105 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — EasyBread Management</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="description" content="Contact EasyBread Management.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | EasyBread Management</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="description" content="Contact EasyBread Management." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
 
-  <header id="site-header"></header>
+    <main>
+      <section class="container section">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <p>
+            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua.
+          </p>
+        </div>
 
-  <main>
-    <section class="container section">
-      <div class="section-head">
-        <span class="eyebrow">Contact</span>
-        <h1>Lorem ipsum dolor sit amet</h1>
-        <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-
-      <div class="form-page-layout">
-        <!--
+        <div class="form-page-layout">
+          <!--
           data-secure-form + data-form-name are read by js/forms.js, which
           adds the honeypot field, fetches a CSRF token, validates, and
           posts to /api/submit on the backend (see backend/app.py). The
           backend is the one that actually emails this to you.
         -->
-        <form class="form-card" data-secure-form data-form-name="contact" novalidate>
-          <div class="field">
-            <label for="contact-name">Full name</label>
-            <input type="text" id="contact-name" name="name" maxlength="120" required autocomplete="name">
-          </div>
+          <form
+            class="form-card"
+            data-secure-form
+            data-form-name="contact"
+            novalidate
+          >
+            <div class="field">
+              <label for="contact-name"
+                >Name <span class="required-mark">*</span></label
+              >
+              <input
+                type="text"
+                id="contact-name"
+                name="name"
+                maxlength="120"
+                required
+                autocomplete="name"
+                placeholder="Your name"
+              />
+            </div>
 
-          <div class="field">
-            <label for="contact-email">Email address</label>
-            <input type="email" id="contact-email" name="email" maxlength="200" required autocomplete="email">
-          </div>
+            <div class="field">
+              <label for="contact-email"
+                >Email <span class="required-mark">*</span></label
+              >
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                maxlength="200"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+              />
+            </div>
 
-          <div class="field">
-            <label for="contact-subject">Subject</label>
-            <input type="text" id="contact-subject" name="subject" maxlength="150" required>
-          </div>
+            <div class="field">
+              <label for="contact-subject"
+                >Subject <span class="required-mark">*</span></label
+              >
+              <input
+                type="text"
+                id="contact-subject"
+                name="subject"
+                maxlength="150"
+                required
+                placeholder="Subject matter"
+              />
+            </div>
 
-          <div class="field">
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" maxlength="5000" required></textarea>
-            <p class="hint">Lorem ipsum placeholder hint text — max 5000 characters.</p>
-          </div>
+            <div class="field">
+              <label for="contact-message"
+                >Message <span class="required-mark">*</span></label
+              >
+              <textarea
+                id="contact-message"
+                name="message"
+                maxlength="5000"
+                required
+                placeholder="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua"
+              ></textarea>
+              <p class="hint">
+                Lorem ipsum placeholder hint text — max 5000 characters.
+              </p>
+            </div>
 
-          <button type="submit" class="btn btn-accent">Send message</button>
-        </form>
-
-        <!-- Sidebar filling the space beside the form. This specific
-             wording was supplied directly rather than Lorem Ipsum. -->
-        <aside class="form-sidebar">
-          <div class="card sidebar-box">
-            <h3>Curious about management?</h3>
-            <p>The application is the best way to start</p>
-            <a href="application.html" class="btn btn-accent my-sm">Start an application</a>
-            <p class="small-print mt-0 mb-0">It helps to get to know you properly, and there is no commitment in applying.</p>
-          </div>
-
-          <div>
-            <p class="mb-sm">Email: info@easybreadmanagement.com</p>
-            <p class="mb-0">
-              Instagram:
-              <a href="https://www.instagram.com/easybreadmanagement" target="_blank" rel="noopener">@easybreadmanagement</a>
+            <div class="field">
+              <label class="field-choice">
+                <input
+                  type="checkbox"
+                  id="contact-privacy-confirm"
+                  name="privacy_confirmation"
+                  value="yes"
+                  required
+                />
+                I agree to the
+                <a href="privacy-policy.html" target="_blank" rel="noopener"
+                  >Privacy Policy</a
+                >.
+                <span class="required-mark">*</span>
+              </label>
+            </div>
+            <p class="privacy-policy-agreement">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+              labore!
             </p>
-          </div>
+            <button type="submit" class="btn btn-accent">Send message</button>
+          </form>
 
-          <div>
-            <h3 class="sidebar-subheading">Where we work</h3>
-            <p class="mt-0">With creators worldwide, founded in Australia.</p>
-          </div>
+          <!-- Sidebar filling the space beside the form. This specific
+             wording was supplied directly rather than Lorem Ipsum. -->
+          <aside class="form-sidebar">
+            <div class="card sidebar-box">
+              <h3>Curious about management?</h3>
+              <p>The application is the best way to start</p>
+              <a href="application.html" class="btn btn-accent my-sm"
+                >Start an application</a
+              >
+              <p class="small-print mt-0 mb-0">
+                It helps to get to know you properly, and there is no commitment
+                in applying.
+              </p>
+            </div>
 
-          <p class="small-print">
-            A note on safety: we never cold-DM creators to sign them.
-            <a href="https://www.instagram.com/easybreadmanagement" target="_blank" rel="noopener">@easybreadmanagement</a>
-            on Instagram and emails from @easybreadmanagement.com are our
-            only official channels. If anyone else claims to be us, it isn't.
-          </p>
+            <div>
+              <p class="mb-sm">Email: info@easybreadmanagement.com</p>
+              <p class="mb-0">
+                Instagram:
+                <a
+                  href="https://www.instagram.com/easybreadmanagement"
+                  target="_blank"
+                  rel="noopener"
+                  >@easybreadmanagement</a
+                >
+              </p>
+            </div>
 
-          <p class="small-print mt-0">
-            Looking to join the team?
-            <a href="careers.html">See our open roles →</a>
-          </p>
-        </aside>
-      </div>
-    </section>
-  </main>
+            <div>
+              <h3 class="sidebar-subheading">Where we work</h3>
+              <p class="mt-0">With creators worldwide, founded in Australia.</p>
+            </div>
 
-  <footer id="site-footer"></footer>
+            <p class="small-print">
+              A note on safety: we never cold-DM creators to sign them.
+              <a
+                href="https://www.instagram.com/easybreadmanagement"
+                target="_blank"
+                rel="noopener"
+                >@easybreadmanagement</a
+              >
+              on Instagram and emails from @easybreadmanagement.com are our only
+              official channels. If anyone else claims to be us, it isn't.
+            </p>
 
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/forms.js"></script>
-</body>
+            <p class="small-print mt-0">
+              Looking to join the team?
+              <a href="careers.html">See our open roles →</a>
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+  </body>
 </html>

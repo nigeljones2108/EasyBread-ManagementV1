@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers Application | EasyBread Management</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      name="description"
+      content="Apply for a role at EasyBread Management."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
+
+    <main>
+      <section class="container section">
+        <div class="section-head">
+          <span class="eyebrow">Apply</span>
+          <h2>Duis aute irure dolor in reprehenderit</h2>
+          <p>In voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+
+        <div class="form-page-layout">
+          <!--
+          method/enctype are set for correctness even though js/forms.js
+          always intercepts the submit and sends a fetch() request instead —
+          see js/forms.js for why (CSRF token, honeypot, JSON/file handling).
+        -->
+          <form
+            class="form-card"
+            data-secure-form
+            data-form-name="careers"
+            method="post"
+            enctype="multipart/form-data"
+            novalidate
+          >
+            <div class="field-row">
+              <div class="field">
+                <label for="career-name"
+                  >Full name <span class="required-mark">*</span></label
+                >
+                <input
+                  type="text"
+                  id="career-name"
+                  name="name"
+                  maxlength="120"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="field">
+                <label for="career-email"
+                  >Email <span class="required-mark">*</span></label
+                >
+                <input
+                  type="email"
+                  id="career-email"
+                  name="email"
+                  maxlength="200"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="career-birth-year"
+                  >Year of birth <span class="required-mark">*</span></label
+                >
+                <!-- max is a client-side courtesy (roughly "18+ as of now"); the
+                     backend re-checks the real 18+ cutoff at request time. -->
+                <input
+                  type="number"
+                  id="career-birth-year"
+                  name="birth_year"
+                  inputmode="numeric"
+                  min="1940"
+                  max="2008"
+                  required
+                  autocomplete="bday-year"
+                  placeholder="e.g. 1998"
+                />
+              </div>
+
+              <div class="field">
+                <label for="career-location"
+                  >Where are you based?
+                  <span class="required-mark">*</span></label
+                >
+                <input
+                  type="text"
+                  id="career-location"
+                  name="location"
+                  maxlength="150"
+                  required
+                  autocomplete="country-name"
+                  placeholder="City &#38; Country"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="career-role"
+                >Role you're applying for
+                <span class="required-mark">*</span></label
+              >
+              <select id="career-role" name="role" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="Operations Manager">Operations Manager</option>
+                <option value="Client Manager">Client Manager</option>
+                <option value="Social Media Management">
+                  Social Media Management
+                </option>
+                <option value="Online Chatter">Online Chatter</option>
+                <option value="Video Editor/Photo Manipulator">
+                  Video Editor/Photo Manipulator
+                </option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <h3 class="form-section-heading">Lorem ipsum dolor sit amet</h3>
+            <p class="form-section-subtext">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="career-portfolio"
+                  >Your website URL <span class="required-mark">*</span></label
+                >
+                <input
+                  type="text"
+                  id="career-portfolio"
+                  name="portfolio"
+                  maxlength="300"
+                  required
+                  placeholder="e.g. LinkedIn, Fiverr, Instagram"
+                />
+              </div>
+
+              <div class="field">
+                <label for="career-experience"
+                  >Years of relevant experience
+                  <span class="required-mark">*</span></label
+                >
+                <select id="career-experience" name="experience" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="Less than 6 Months">Less than 6 Months</option>
+                  <option value="1 year">1 year</option>
+                  <option value="2 years">2 years</option>
+                  <option value="3 years">3 years</option>
+                  <option value="4 years">4 years</option>
+                  <option value="5+ years">5+ years</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="career-software"
+                >List all software you work with
+                <span class="required-mark">*</span></label
+              >
+              <textarea
+                id="career-software"
+                name="software"
+                maxlength="500"
+                rows="1"
+                required
+                data-autogrow
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="career-accounts-worked"
+                >How many accounts have you worked on, and what were the sizes
+                of those accounts? <span class="required-mark">*</span></label
+              >
+              <textarea
+                id="career-accounts-worked"
+                name="accounts_worked"
+                maxlength="1000"
+                rows="1"
+                required
+                data-autogrow
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="career-cover-letter">Paste your Cover letter</label>
+              <textarea
+                id="career-cover-letter"
+                name="cover_letter"
+                maxlength="5000"
+                class="textarea-lg"
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="career-resume"
+                >Resume / CV <span class="required-mark">*</span></label
+              >
+              <input
+                type="file"
+                id="career-resume"
+                name="resume"
+                accept=".pdf,.doc,.docx,.txt,.rtf"
+                required
+              />
+              <p class="hint">PDF, DOC, DOCX, TXT, or RTF — 5MB max.</p>
+            </div>
+
+            <h3 class="form-section-heading">Lorem ipsum dolor sit amet</h3>
+            <p class="form-section-subtext">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <fieldset class="field-choice-field" data-require-one>
+              <legend>
+                Select the days you are available to work
+                <span class="required-mark">*</span>
+              </legend>
+              <div class="field-choice-group field-choice-grid">
+                <label class="field-choice">
+                  <input
+                    type="checkbox"
+                    name="availability_monday"
+                    value="yes"
+                  />
+                  Monday
+                </label>
+                <label class="field-choice">
+                  <input
+                    type="checkbox"
+                    name="availability_tuesday"
+                    value="yes"
+                  />
+                  Tuesday
+                </label>
+                <label class="field-choice">
+                  <input
+                    type="checkbox"
+                    name="availability_wednesday"
+                    value="yes"
+                  />
+                  Wednesday
+                </label>
+                <label class="field-choice">
+                  <input
+                    type="checkbox"
+                    name="availability_thursday"
+                    value="yes"
+                  />
+                  Thursday
+                </label>
+                <label class="field-choice">
+                  <input
+                    type="checkbox"
+                    name="availability_friday"
+                    value="yes"
+                  />
+                  Friday
+                </label>
+                <label class="field-choice">
+                  <input
+                    type="checkbox"
+                    name="availability_saturday"
+                    value="yes"
+                  />
+                  Saturday
+                </label>
+                <label class="field-choice">
+                  <input
+                    type="checkbox"
+                    name="availability_sunday"
+                    value="yes"
+                  />
+                  Sunday
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="career-hours-per-day"
+                >On the days you selected, how many hours can you reliably
+                commit to each day? <span class="required-mark">*</span></label
+              >
+              <input
+                type="text"
+                id="career-hours-per-day"
+                name="hours_per_day"
+                maxlength="150"
+                required
+              />
+            </div>
+
+            <h3 class="form-section-heading">Lorem ipsum dolor sit amet</h3>
+            <p class="form-section-subtext">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <div class="field">
+              <label class="field-choice">
+                <input
+                  type="checkbox"
+                  id="career-adult-content-confirm"
+                  name="adult_content_confirmation"
+                  value="yes"
+                  required
+                />
+                I'm 18 or over and comfortable working in the adult-content
+                industry, <br />with the discretion it asks for.
+                <span class="required-mark">*</span>
+              </label>
+            </div>
+
+            <div class="field">
+              <label class="field-choice">
+                <input
+                  type="checkbox"
+                  id="career-privacy-confirm"
+                  name="privacy_confirmation"
+                  value="yes"
+                  required
+                />
+                I'm happy for EasyBread Management to hold the details and CV
+                I've shared to consider my application, as set out in the
+                <a href="privacy-policy.html" target="_blank" rel="noopener"
+                  >privacy policy</a
+                >.
+                <span class="required-mark">*</span>
+              </label>
+            </div>
+
+            <div class="field">
+              <label class="field-choice">
+                <input
+                  type="checkbox"
+                  id="career-tos-confirm"
+                  name="tos_confirmation"
+                  value="yes"
+                  required
+                />
+                I agree to the
+                <a href="terms-of-service.html" target="_blank" rel="noopener"
+                  >Terms of Service</a
+                >.
+                <span class="required-mark">*</span>
+              </label>
+            </div>
+            <p class="privacy-policy-agreement">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+              labore!
+            </p>
+            <button type="submit" class="btn btn-accent">
+              Submit application
+            </button>
+          </form>
+
+          <!-- Sidebar filling the space beside the form — same structure as
+             application.html's sidebar, but with Lorem Ipsum placeholder
+             copy throughout, as this section's content wasn't specified. -->
+          <aside class="form-sidebar">
+            <div>
+              <h3>What happens next</h3>
+              <ol class="process-steps">
+                <li>
+                  <span class="step-number">01</span>
+                  <span class="step-body">
+                    <strong>Lorem ipsum dolor</strong>
+                    <p>
+                      Sit amet consectetur adipiscing elit, sed do eiusmod
+                      tempor incididunt ut labore.
+                    </p>
+                  </span>
+                </li>
+                <li>
+                  <span class="step-number">02</span>
+                  <span class="step-body">
+                    <strong>Ut enim ad minim</strong>
+                    <p>
+                      Veniam quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo.
+                    </p>
+                  </span>
+                </li>
+                <li>
+                  <span class="step-number">03</span>
+                  <span class="step-body">
+                    <strong>Duis aute irure</strong>
+                    <p>
+                      Dolor in reprehenderit in voluptate velit esse cillum
+                      dolore eu fugiat nulla.
+                    </p>
+                  </span>
+                </li>
+                <li>
+                  <span class="step-number">04</span>
+                  <span class="step-body">
+                    <strong>Excepteur sint occaecat</strong>
+                    <p>
+                      Cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est.
+                    </p>
+                  </span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="card sidebar-box">
+              <h3>What we offer</h3>
+              <ul>
+                <li>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium.
+                </li>
+                <li>
+                  Doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+                  illo inventore.
+                </li>
+                <li>
+                  Veritatis et quasi architecto beatae vitae dicta sunt
+                  explicabo nemo enim.
+                </li>
+                <li>
+                  Ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+                  fugit sed quia.
+                </li>
+              </ul>
+            </div>
+
+            <div class="card sidebar-box">
+              <h3>Your privacy, always.</h3>
+              <p>
+                Consequuntur magni dolores eos qui ratione voluptatem sequi
+                nesciunt neque porro quisquam est qui dolorem ipsum quia dolor
+                sit amet, consectetur, adipisci velit, sed quia.
+                <a href="privacy-policy.html">Read our privacy policy.</a>
+              </p>
+            </div>
+
+            <p class="small-print">
+              Non numquam eius modi tempora incidunt ut labore et dolore magnam
+              aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+              exercitationem ullam corporis suscipit laboriosam —
+              <a href="contact.html">get in touch</a> if you have questions
+              before applying.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+  </body>
+</html>
