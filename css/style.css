@@ -35,6 +35,7 @@
   --color-line: #C9CDA0;        /* hairline borders derived from bg */
   --color-error: #B3401F;       /* form error state */
   --color-success: #1D7A4C;     /* form success state */
+  --light-coral: #ef767aff;     /* required-field asterisk */
 
   /* Type */
   --font-display: "Space Grotesk", "Segoe UI", sans-serif;
@@ -119,6 +120,19 @@ img, svg { max-width: 100%; display: block; }
 .section-head {
   max-width: 640px;
   margin-bottom: 2.5rem;
+}
+
+/* Modifier: lets a section-head's heading stretch across the full
+   container width instead of being capped at 640px — used on the
+   homepage's "What we do" section. */
+.section-head-wide {
+  max-width: none;
+}
+.section-head-wide h2 {
+  max-width: none;
+}
+.section-head-wide p {
+  max-width: 640px;
 }
 
 .eyebrow {
@@ -444,9 +458,99 @@ img, svg { max-width: 100%; display: block; }
   gap: 0.4rem;
 }
 
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.field-row .field {
+  margin-bottom: 1.25rem;
+}
+
+.form-section-heading {
+  margin: 2rem 0 0.35rem;
+}
+.form-section-heading:first-child {
+  margin-top: 0;
+}
+
+.form-section-subtext {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin: 0 0 1.25rem;
+}
+
+.textarea-lg {
+  min-height: 160px;
+}
+
+textarea[data-autogrow] {
+  resize: none;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.input-prefix {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-prefix-symbol {
+  position: absolute;
+  left: 0.9rem;
+  color: var(--color-ink-soft);
+  pointer-events: none;
+}
+.input-prefix input {
+  width: 100%;
+  padding-left: 1.8rem;
+}
+
+.field-choice-field {
+  border: none;
+  padding: 0;
+  margin: 0.75rem 0 1.25rem;
+}
+.field-choice-field legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.field-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.field-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.field-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+.field-choice input[type="checkbox"],
+.field-choice input[type="radio"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--color-accent-deep);
+  cursor: pointer;
+}
+
 .field label {
   font-weight: 600;
   font-size: 0.9rem;
+}
+
+.required-mark {
+  color: var(--light-coral);
 }
 
 .field .hint {
@@ -469,6 +573,12 @@ input:focus, textarea:focus, select:focus {
   outline: none;
 }
 textarea { resize: vertical; min-height: 120px; }
+
+.privacy-policy-agreement {
+  /* background-color: #1D7A4C; */
+  font-size: .8rem;
+}
+
 
 /* Honeypot field — hidden from sighted + keyboard users, but still present
    in the DOM for bots that indiscriminately fill every input. */
@@ -644,6 +754,62 @@ textarea { resize: vertical; min-height: 120px; }
   font-size: 0.92rem;
 }
 
+/* Wider variant for a full-container section (vs. the narrow sidebar) —
+   lays the steps out as a row of cards instead of a stacked list. */
+.process-steps-wide {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.process-steps-wide li {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.process-steps-wide .step-number {
+  font-size: 1.1rem;
+}
+
+/* Comparison table (homepage "How we compare" section) */
+.compare-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+.compare-table th,
+.compare-table td {
+  padding: 0.9rem 1.25rem;
+  text-align: left;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--color-line);
+}
+.compare-table thead th {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.compare-table td:first-child,
+.compare-table th:first-child {
+  color: var(--color-ink-soft);
+  font-weight: 500;
+}
+.compare-highlight {
+  background: var(--color-accent-soft);
+  font-weight: 600;
+}
+.compare-table thead .compare-highlight {
+  background: var(--color-accent-deep);
+  color: #fff;
+}
+
 /* Boxed bullet list (e.g. "How we work") — reuses .card for the box. */
 .sidebar-box h3 { margin-bottom: 0.75rem; }
 .sidebar-box ul {
@@ -685,11 +851,14 @@ textarea { resize: vertical; min-height: 120px; }
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .process-steps-wide { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; justify-content: start; }
   .form-page-layout { grid-template-columns: 1fr; }
-}
 
-@media (max-width: 700px) {
+  /* The full nav (all links + the Apply Now button) doesn't have room to
+     breathe between roughly 700–900px, so the hamburger menu takes over
+     starting here rather than at the narrower 700px breakpoint below —
+     that gap was causing the header itself to overflow horizontally. */
   .menu-toggle { display: flex; }
   .nav-list {
     position: absolute;
@@ -705,7 +874,11 @@ textarea { resize: vertical; min-height: 120px; }
   }
   .nav-list.open { display: flex; }
   .nav-cta { display: none; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .grid-2, .grid-3, .field-row, .process-steps-wide { grid-template-columns: 1fr; }
+  .field-choice-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-contact, .footer-socials { text-align: left; }
 }
